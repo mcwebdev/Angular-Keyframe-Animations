@@ -1,9 +1,10 @@
 # NgPokerSlots
+![Alt text](src/assets/images/demo.png?raw=true "Title")
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 8.3.21.
 
 ## Live Demo
-http://krosomnikhan.com/
+deepspeedai.com/zen
 
 ## Development server
 
