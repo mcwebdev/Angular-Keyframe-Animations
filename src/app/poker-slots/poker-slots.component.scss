@@ -582,3 +582,28 @@ button.shuffle {
 body {
   background-color: #222;
 }
+
+
+
+@media only screen and (min-device-width : 374px) and (max-device-width : 813px) {
+  button.shuffle {
+    font-size: 16px;
+    height: auto;
+    margin: 15px;
+    width: auto;
+    border: solid 1px #ff6a00;
+  }
+
+  .slots{
+    top: 369px;
+    height: 500px;
+  }
+
+  .Spades span, .Hearts span, .Diamonds span, .Clubs span{
+    top: 10px;
+  }
+
+  .slot{
+      top:80px;
+  }
+}

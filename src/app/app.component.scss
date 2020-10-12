@@ -299,3 +299,20 @@ svg#clouds {
     visibility: hidden;
   }
 }
+
+
+@media only screen and (min-device-width : 374px) and (max-device-width : 813px) {
+
+  .spacer {
+    left: 0 !important;
+  }
+
+  .spacer button {
+    font-size: 12px;
+    height: auto;
+    left: 0px;
+    text-align: center;
+    width: auto;
+  }
+
+}
