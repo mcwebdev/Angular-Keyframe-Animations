@@ -71,6 +71,8 @@ export class PokerSlotsComponent implements AfterViewInit, AfterViewChecked {
     this.slot3.classList.remove("slot");
 
     void this.slot1.offsetWidth;
+    void this.slot2.offsetWidth;
+    void this.slot3.offsetWidth;
 
     // -> and re-adding the class
     this.slot1.classList.add("slot");
@@ -79,6 +81,8 @@ export class PokerSlotsComponent implements AfterViewInit, AfterViewChecked {
   }
 
   refreshPage() {
+    this.winnerMsg = "3 of same suit wins";
+    this.winIcon = "nowinIcon";
     this.reset();
     this.Deck();
     this.updateStyler();
