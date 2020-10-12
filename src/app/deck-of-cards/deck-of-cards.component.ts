@@ -16,12 +16,15 @@ export class DeckOfCardsComponent implements OnInit {
   rank: any;
   getCards: any;
   getCard: any;
+
+
   constructor() {
     this.Deck();
   }
 
   ngOnInit() {
   }
+
   Deck() {
     this.cards = [];
     this.shuffle = function () {

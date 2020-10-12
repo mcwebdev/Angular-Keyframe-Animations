@@ -6,6 +6,7 @@ import { Component, OnInit, AfterViewInit, Inject, ViewChild, Renderer2, AfterVi
   templateUrl: './poker-slots.component.html',
   styleUrls: ['./poker-slots.component.scss']
 })
+
 export class PokerSlotsComponent implements AfterViewInit, AfterViewChecked {
   cards: any;
   shuffle: any;
@@ -23,6 +24,8 @@ export class PokerSlotsComponent implements AfterViewInit, AfterViewChecked {
   slotWheelThree: any;
   winIcon: string;
   htmlToAdd: any;
+  animationDuration: string;
+  opacity: string = ".2";
 
   constructor(@Inject(DOCUMENT) private _document: Document, private renderer: Renderer2) {
     this.Deck();
@@ -35,19 +38,18 @@ export class PokerSlotsComponent implements AfterViewInit, AfterViewChecked {
     setTimeout(() => {
       this.isWinner();
       clearTimeout(10);
-    }, 7000);
+    }, 6600);
   }
 
   ngAfterViewChecked() {
 
   }
 
-  createRecaptchaContainer() {
+  audio() {
     this.htmlToAdd = '<div><audio autoplay><source src = "../../assets/audio/coins.mp3" type = "audio/mpeg" ></audio></div>';
   }
 
   isWinner() {
-
     this.slotWheelOne = this.slot1.childNodes[10].childNodes[0].className;
     this.slotWheelTwo = this.slot2.childNodes[10].childNodes[0].className;
     this.slotWheelThree = this.slot3.childNodes[10].childNodes[0].className;
@@ -57,12 +59,40 @@ export class PokerSlotsComponent implements AfterViewInit, AfterViewChecked {
       this.winnerMsg = "You Won";
       this.winIcon = "winIcon";
 
-      this.createRecaptchaContainer();
+      this.audio();
     }
   }
-  refreshPage() {
-    this._document.defaultView.location.reload();
+
+  reset() {
+    // reset the transition by...
+    // -> removing the class
+    this.slot1.classList.remove("slot");
+    this.slot2.classList.remove("slot");
+    this.slot3.classList.remove("slot");
+
+    void this.slot1.offsetWidth;
+
+    // -> and re-adding the class
+    this.slot1.classList.add("slot");
+    this.slot2.classList.add("slot");
+    this.slot3.classList.add("slot");
   }
+
+  refreshPage() {
+    this.reset();
+    this.Deck();
+    this.updateStyler();
+  }
+
+
+  updateStyler() {
+    const css = ` `;
+    const head = document.getElementsByTagName('head')[0];
+    const style = document.createElement('style');
+    style.type = 'text/css';
+    style.appendChild(document.createTextNode(css));
+    head.appendChild(style);
+  };
 
   Deck() {
     this.cards = [];
@@ -128,6 +158,10 @@ export class PokerSlotsComponent implements AfterViewInit, AfterViewChecked {
       return this.getCards(1);
     }
     this.shuffle();
-  }
 
+    setTimeout(() => {
+      this.isWinner();
+      clearTimeout(10);
+    }, 6600);
+  }
 }

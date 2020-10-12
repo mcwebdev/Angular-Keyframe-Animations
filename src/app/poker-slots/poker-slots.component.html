@@ -5,19 +5,19 @@
 </h2>
 <div class="slots">
   <ul id="slot1" class="cardList slot">
-    <li class="number" *ngFor="let card of cards | slice:0:10; let i = index; ">
+    <li class="number" *ngFor="let card of cards | slice:0:10; let i = index;">
       <span [ngClass]="card.suit"> <span [ngClass]="card.rank"></span></span>
     </li>
   </ul>
 
   <ul id="slot2" class="cardList slot">
-    <li class="number" *ngFor="let card of cards | slice:10:20; let i = index; ">
+    <li class="number" *ngFor="let card of cards | slice:10:20; let i = index;">
       <span [ngClass]="card.suit"> <span [ngClass]="card.rank"></span></span>
     </li>
   </ul>
 
   <ul id="slot3" class="cardList slot">
-    <li class="number" *ngFor="let card of cards | slice:20:30; let i = index; ">
+    <li class="number" *ngFor="let card of cards | slice:20:30; let i = index;">
       <span [ngClass]="card.suit"> <span [ngClass]="card.rank"></span></span>
     </li>
   </ul>
